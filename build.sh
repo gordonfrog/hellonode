@@ -11,7 +11,7 @@ case "$1" in
   ;;
   deploy)
     sed -e s/_NAME_/hellonode/ -e s/_PORT_/9091/  < ../deployment/service-template.yml > svc.yml
-    sed -e s/_NAME_/hellonode/ -e s/_PORT_/9091/ -e s/_IMAGE_/gordonfrog\\/hellonode:$GITSHA/ < ../deployment/deployment-template.yml > dep.yml
+    sed -e s/_NAME_/hellonode/ -e s/_PORT_/9091/ -e s/_IMAGE_/gordonfrog\\/hellonode:$GITSHA/ < ./deployment/deployment-template.yml > dep.yml
     sudo -i -u williamgordon kubectl apply -f $(pwd)/svc.yml
     sudo -i -u williamgordon kubectl apply -f $(pwd)/dep.yml
   ;;
